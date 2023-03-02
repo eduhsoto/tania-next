@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styled from 'styled-components'
 
 export const Group = styled.div`
@@ -7,7 +8,7 @@ export const Group = styled.div`
   flex-direction: column;
 `
 
-export const Image = styled.img`
+export const Img = styled(Image)`
   width: 80%;
 `
 
