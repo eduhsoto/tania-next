@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styled, { css } from 'styled-components'
 
 interface HeadProps {
@@ -17,10 +18,10 @@ export const HeadSection = styled.section<HeadProps>`
     props.reverse &&
     css`
       direction: rtl;
-    `}
+    `}s
 `
 
-export const Image = styled.img`
+export const Img = styled(Image)`
   width: 60%;
 `
 
