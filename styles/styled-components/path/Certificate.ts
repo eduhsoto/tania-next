@@ -10,6 +10,7 @@ export const Group = styled.div`
 
 export const Img = styled(Image)`
   width: 80%;
+  height: 100%;
 `
 
 export const ALink = styled.a`

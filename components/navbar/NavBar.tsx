@@ -25,6 +25,8 @@ const NavBar = (): JSX.Element => {
             src='/img/brand-logo.jpg'
             alt='brand_logo'
             className='brand__logo'
+            width={265}
+            height={77}
           />
         </Link>
 
@@ -48,6 +50,8 @@ const NavBar = (): JSX.Element => {
                 src='/img/instagram-network.png'
                 alt='instagram link'
                 className='social__image'
+                width={37}
+                height={37}
               />
             </NavSocial>
             <NavSocial
@@ -58,6 +62,8 @@ const NavBar = (): JSX.Element => {
                 src='/img/linkedIn-network.png'
                 alt='linkedin link'
                 className='social__image'
+                width={37}
+                height={37}
               />
             </NavSocial>
             <NavSocial
@@ -68,6 +74,8 @@ const NavBar = (): JSX.Element => {
                 src='/img/behance-portafolio.png'
                 alt='behance link'
                 className='social__image'
+                width={37}
+                height={37}
               />
             </NavSocial>
           </div>
