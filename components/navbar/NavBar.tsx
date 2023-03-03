@@ -2,13 +2,13 @@ import { useState } from 'react'
 import {
   Nav,
   NavContainer,
-  NavA,
   NavSocial,
   NavItem,
 } from '@/styles/styled-components/navbar/Nav'
 import Hamburger from './Hamburger'
 import Link from 'next/link'
 import Image from 'next/image'
+import NavLink from './NavLink'
 
 const NavBar = (): JSX.Element => {
   const [clicked, setClicked] = useState(false)
@@ -36,9 +36,9 @@ const NavBar = (): JSX.Element => {
 
         <div className={`nav__responsive ${clicked ? 'show' : ''}`}>
           <NavItem>
-            <NavA href='/'>Acerca de mí</NavA>
-            <NavA href='/my-path'>Mi trayectoria</NavA>
-            <NavA href='/portafolio'>Mi portafolio</NavA>
+            <NavLink route='/' linkName='Acerca de mí' />
+            <NavLink route='/my-path' linkName='Mi trayectoria' />
+            <NavLink route='/portafolio' linkName='Mi portafolio' />
           </NavItem>
 
           <div>
