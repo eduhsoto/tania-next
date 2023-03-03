@@ -21,6 +21,8 @@ const Footer = (): JSX.Element => {
               src='/img/phone-contact.png'
               className='icon__contact'
               alt='phone number'
+              width={37}
+              height={37}
             />
             <FooterLink href='tel:3311387789'>33 11 38 77 89</FooterLink>
           </FooterItem>
@@ -40,6 +42,8 @@ const Footer = (): JSX.Element => {
               src='/img//brand-logo.jpg'
               className='footer__image'
               alt='brand logo'
+              width={265}
+              height={77}
             />
           </FooterItem>
 
@@ -48,6 +52,8 @@ const Footer = (): JSX.Element => {
               src='/img/email-contact.png'
               className='icon__contact'
               alt='email'
+              width={37}
+              height={37}
             />
             <FooterLink
               href='mailto:taniaraquel.jimenezm@gmail.com'

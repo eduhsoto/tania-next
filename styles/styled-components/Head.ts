@@ -23,6 +23,7 @@ export const HeadSection = styled.section<HeadProps>`
 
 export const Img = styled(Image)`
   width: 60%;
+  height: 100%;
 `
 
 export const Description = styled.div<HeadProps>`

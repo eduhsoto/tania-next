@@ -4,10 +4,10 @@ import {
   ALink,
 } from '@/styles/styled-components/path/Certificate'
 
-const Certificate = ({ img, link }: CertificateProps): JSX.Element => {
+const Certificate = ({ img, link, w, h }: CertificateProps): JSX.Element => {
   return (
     <Group>
-      <Img src={img} alt='certificate image'></Img>
+      <Img src={img} width={w} height={h} alt='certificate image'></Img>
       <ALink target='_blank' href={link}>
         Ver
       </ALink>
@@ -20,4 +20,6 @@ export default Certificate
 interface CertificateProps {
   img: string
   link: string
+  w: number
+  h: number
 }
