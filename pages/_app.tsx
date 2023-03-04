@@ -1,10 +1,11 @@
 import Footer from '@/components/Footer'
 import NavBar from '@/components/navbar/NavBar'
+import { AuthProvider } from '@/context/authContext'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
-export default function App({ Component, pageProps }: AppProps) : JSX.Element {
+export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
@@ -14,10 +15,11 @@ export default function App({ Component, pageProps }: AppProps) : JSX.Element {
         <meta name='author' content='Tania' />
         <meta name='copyright' content='Tania' />
       </Head>
-      <NavBar />
-      <Component {...pageProps} />
-      <Footer />
+      <AuthProvider>
+        <NavBar />
+        <Component {...pageProps} />
+        <Footer />
+      </AuthProvider>
     </>
   )
 }
-
