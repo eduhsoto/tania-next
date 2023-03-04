@@ -20,7 +20,6 @@ export const FormStyle = styled.form`
   }
 
   img {
-    width: 30%;
     align-self: center;
   }
 `

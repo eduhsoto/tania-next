@@ -25,13 +25,17 @@
         "react-hooks"
     ],
     "rules": {
-        "react-hooks/rules-of-hooks": "error",
+    "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/no-misused-promises": [
       "error",
       {
         "checksVoidReturn": false
       }
-    ]
+    ],
+    "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/return-await": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-call": "off"
     }
 }

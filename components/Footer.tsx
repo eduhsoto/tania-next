@@ -39,7 +39,7 @@ const Footer = (): JSX.Element => {
 
           <FooterItem className='area_4'>
             <Image
-              src='/img//brand-logo.jpg'
+              src='/img/brand-logo.jpg'
               className='footer__image'
               alt='brand logo'
               width={265}
