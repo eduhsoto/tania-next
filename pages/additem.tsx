@@ -5,12 +5,9 @@ import { getDownloadURL } from 'firebase/storage'
 import { useRouter } from 'next/router'
 import type React from 'react'
 import { useState } from 'react'
-import {
-  Button,
-  GroupForm,
-  LoginDiv,
-} from '@/styles/styled-components/Login'
+import { Button, GroupForm, LoginDiv } from '@/styles/styled-components/Login'
 import { FormAdd } from '@/styles/styled-components/dashboard/sub/AddItem'
+import Image from 'next/image'
 
 interface Inputs {
   image: FileList
@@ -21,7 +18,7 @@ interface Inputs {
 }
 
 const AddItem = (): JSX.Element => {
-  const { push } = useRouter()  
+  const { push } = useRouter()
   const [previewImg, setPreviewImg] = useState<string | null>(null)
   const [validationImg, setValidationImg] = useState(false)
 
@@ -81,7 +78,7 @@ const AddItem = (): JSX.Element => {
         <GroupForm>
           {previewImg != null && (
             <div>
-              <img src={previewImg} alt='preview' />
+              <Image src={previewImg} alt='preview' width={472} height={206} />
             </div>
           )}
           <input

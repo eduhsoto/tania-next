@@ -13,7 +13,7 @@ import {
   Table,
   TopNav,
   Wrapper,
-  LinkAdd
+  LinkAdd,
 } from '@/styles/styled-components/dashboard/Dashboard'
 import Spinner from '@/components/Spinner'
 
@@ -61,8 +61,6 @@ const Dashboard = (): JSX.Element => {
     return unsubscribe
   }, [])
 
- 
-
   return (
     <div>
       <TopNav>
@@ -109,7 +107,9 @@ const Dashboard = (): JSX.Element => {
                   <td>{item.category}</td>
                   <td>{item.description}</td>
                   <td>
-                    <LinkEdit onClick={async () => push(`/edit/${item.id}`)}>Editar</LinkEdit>
+                    <LinkEdit onClick={async () => push(`/edit/${item.id}`)}>
+                      Editar
+                    </LinkEdit>
                     <ButtonDas
                       onClick={async () => {
                         await deleteItem(item.id, item.deleteImage)

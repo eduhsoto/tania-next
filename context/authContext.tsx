@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { createContext, type ReactNode, useContext, useEffect, useState } from 'react'
+import {
+  createContext,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import type React from 'react'
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import type { Auth, User, UserCredential } from 'firebase/auth'
@@ -20,7 +26,11 @@ export const useAuth = (): AuthContextModel | null => {
   return context
 }
 
-export const AuthProvider = ({ children }: { children: ReactNode } ): React.ReactElement => {
+export const AuthProvider = ({
+  children,
+}: {
+  children: ReactNode
+}): React.ReactElement => {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setLoading] = useState(true)
 

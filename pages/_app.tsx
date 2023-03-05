@@ -10,10 +10,15 @@ import AddItem from './additem'
 import Dashboard from './dashboard'
 import EditItem from './edit/[id]'
 
-const DefaultComponent = ({children} : { children: ReactNode }): React.ReactElement => <>{children}</>
+const DefaultComponent = ({
+  children,
+}: {
+  children: ReactNode
+}): React.ReactElement => <>{children}</>
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
-  const Auth = Component === Dashboard || Component === AddItem || Component === EditItem
+  const Auth =
+    Component === Dashboard || Component === AddItem || Component === EditItem
   const IsComponent = Auth ? ProctedRoute : DefaultComponent
 
   const IsSize = Auth ? JustDesktop : DefaultComponent
@@ -29,9 +34,9 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <AuthProvider>
         <NavBarwithRender />
         <IsComponent>
-        <IsSize>
-        <Component {...pageProps} />
-        </IsSize>
+          <IsSize>
+            <Component {...pageProps} />
+          </IsSize>
         </IsComponent>
         <FooterwithRender />
       </AuthProvider>

@@ -5,13 +5,10 @@ import { getDownloadURL } from 'firebase/storage'
 import { useRouter } from 'next/router'
 import type React from 'react'
 import { useState, useEffect } from 'react'
-import {
-  Button,
-  GroupForm,
-  LoginDiv,
-} from '@/styles/styled-components/Login'
+import { Button, GroupForm, LoginDiv } from '@/styles/styled-components/Login'
 import { FormAdd } from '@/styles/styled-components/dashboard/sub/AddItem'
 import Spinner from '@/components/Spinner'
+import Image from 'next/image'
 
 interface Inputs {
   image: FileList
@@ -22,8 +19,8 @@ interface Inputs {
 }
 
 const EditItem = (): JSX.Element => {
-  const { push, query } = useRouter()  
-  const { id }  = query
+  const { push, query } = useRouter()
+  const { id } = query
   const idString = id as string
   const [previewImg, setPreviewImg] = useState<string | null>(null)
   const [validationImg, setValidationImg] = useState(false)
@@ -111,7 +108,7 @@ const EditItem = (): JSX.Element => {
         <GroupForm>
           {previewImg != null && (
             <div>
-              <img src={previewImg} alt='preview' />
+              <Image src={previewImg} alt='preview'width={472} height={206} />
             </div>
           )}
           <input

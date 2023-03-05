@@ -1,8 +1,4 @@
-import {
-  Group,
-  Img,
-  ALink,
-} from '@/styles/styled-components/path/Certificate'
+import { Group, Img, ALink } from '@/styles/styled-components/path/Certificate'
 
 const Certificate = ({ img, link, w, h }: CertificateProps): JSX.Element => {
   return (
