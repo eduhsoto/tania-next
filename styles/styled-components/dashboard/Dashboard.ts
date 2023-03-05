@@ -55,6 +55,10 @@ export const H1 = styled.h1`
   color: #187575fa;
 `
 
+export const H1S = styled(H1)`
+  line-height: 1.5em;
+`
+
 export const LinkAdd = styled(Link)`
   margin-right: 30px;
   background-color: var(--errors);
