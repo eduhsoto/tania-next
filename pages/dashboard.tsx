@@ -13,6 +13,7 @@ import {
   Table,
   TopNav,
   Wrapper,
+  LinkAdd
 } from '@/styles/styled-components/dashboard/Dashboard'
 import Spinner from '@/components/Spinner'
 
@@ -66,7 +67,7 @@ const Dashboard = (): JSX.Element => {
     <div>
       <TopNav>
         <h1>Hola Tania</h1>
-        <LinkEdit href='/additem'>Crear nuevo item</LinkEdit>
+        <LinkAdd href='/additem'>Crear nuevo item</LinkAdd>
         <div>
           <ButtonDas onClick={handleLogout}>Cerrar sesión</ButtonDas>
         </div>
@@ -108,7 +109,7 @@ const Dashboard = (): JSX.Element => {
                   <td>{item.category}</td>
                   <td>{item.description}</td>
                   <td>
-                    <LinkEdit href={`/edit/${item.id}`}>Editar</LinkEdit>
+                    <LinkEdit onClick={async () => push(`/edit/${item.id}`)}>Editar</LinkEdit>
                     <ButtonDas
                       onClick={async () => {
                         await deleteItem(item.id, item.deleteImage)

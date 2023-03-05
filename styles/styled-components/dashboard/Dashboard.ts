@@ -53,14 +53,23 @@ export const H1 = styled.h1`
   margin-top: 50px;
   color: #187575fa;
 `
-export const LinkEdit = styled(Link)`
+
+export const LinkAdd = styled(Link)`
   margin-right: 30px;
   background-color: var(--errors);
   border-color: none;
   padding: 4px 4px;
   color: var(--primary_color);
 `
+
 export const ButtonDas = styled(Button)`
   padding: 4px 4px;
   font-weight: 600;
+`
+
+export const LinkEdit = styled(ButtonDas)`
+  background-color: var(--errors);
+  border-color: var(--errors);
+  color: var(--primary_color);
+  margin-right: 30px;
 `
