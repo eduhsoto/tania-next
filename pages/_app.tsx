@@ -1,7 +1,6 @@
-import Footer from '@/components/Footer'
-import NavBar from '@/components/navbar/NavBar'
 import ProctedRoute from '@/components/ProctedRoute'
 import { AuthProvider } from '@/context/authContext'
+import { NavBarwithRender, FooterwithRender } from '@/hco/LocationHco'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -25,11 +24,11 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         <meta name='copyright' content='Tania' />
       </Head>
       <AuthProvider>
-        <NavBar />
+        <NavBarwithRender />
         <IsComponent>
         <Component {...pageProps} />
         </IsComponent>
-        <Footer />
+        <FooterwithRender />
       </AuthProvider>
     </>
   )
