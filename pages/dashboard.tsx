@@ -31,6 +31,7 @@ const Dashboard = (): JSX.Element => {
   const { logOut } = useAuth() as AuthContextModel
   const { push } = useRouter()
   const [items, setItem] = useState<itemType[]>([])
+  const [loading, setLoading] = useState(true)
 
   const handleLogout = async (): Promise<void> => {
     if (window.confirm('¿Estas segura de cerrar sesión?')) {
@@ -55,13 +56,12 @@ const Dashboard = (): JSX.Element => {
         id: doc.id,
       })) as itemType[]
       setItem(itemData)
+      setLoading(false)
     })
     return unsubscribe
   }, [])
 
-  if (items.length === 0) {
-    return <Spinner></Spinner>
-  }
+ 
 
   return (
     <div>
@@ -123,6 +123,8 @@ const Dashboard = (): JSX.Element => {
             })}
           </tbody>
         </Table>
+        {loading && <Spinner />}
+        {items.length === 0 && <h1>Sin contenido</h1>}
       </Wrapper>
       <Link href='/portafolio'>
         <H1>Ver en portafolio</H1>

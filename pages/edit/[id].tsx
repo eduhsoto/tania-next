@@ -11,6 +11,7 @@ import {
   LoginDiv,
 } from '@/styles/styled-components/Login'
 import { FormAdd } from '@/styles/styled-components/dashboard/sub/AddItem'
+import Spinner from '@/components/Spinner'
 
 interface Inputs {
   image: FileList
@@ -23,9 +24,11 @@ interface Inputs {
 const EditItem = (): JSX.Element => {
   const { push, query } = useRouter()  
   const { id }  = query
+  const idString = id as string
   const [previewImg, setPreviewImg] = useState<string | null>(null)
   const [validationImg, setValidationImg] = useState(false)
   const [itemIdImg, setIdUrlImg] = useState<DocumentData | string>()
+  const [loading, setLoading] = useState(true)
   const {
     register,
     formState: { errors },
@@ -35,8 +38,8 @@ const EditItem = (): JSX.Element => {
   } = useForm<Inputs>()
 
   useEffect(() => {
-    const getItem = async (id: string): Promise<void> => {
-      const data = await getDoc(doc(db, 'item', id))
+    const getItem = async (idString: string): Promise<void> => {
+      const data = await getDoc(doc(db, 'item', idString))
       if (data.exists()) {
         setIdUrlImg(data.data().deleteImage as string)
         setPreviewImg(data.data().imageUrl as string)
@@ -44,14 +47,15 @@ const EditItem = (): JSX.Element => {
         setValue('nameP', data.data().title as string)
         setValue('category', data.data().category as string)
         setValue('description', data.data().description as string)
+        setLoading(false)
       } else {
         console.log('no existe')
       }
     }
-    if (id !== undefined && typeof id === 'string') {
-      void getItem(id)
+    if (idString !== undefined) {
+      void getItem(idString)
     }
-  }, [id, setValue])
+  }, [idString, setValue])
 
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const file = e.target.files
@@ -74,14 +78,14 @@ const EditItem = (): JSX.Element => {
       setValidationImg(true)
     } else {
       try {
-        if (id !== undefined && itemIdImg !== undefined && typeof id === 'string') {
+        if (idString !== undefined && itemIdImg !== undefined) {
           const snapshot = await updateloadFile(
             data.image[0],
             itemIdImg as string
           )
           const idImage = snapshot.metadata.fullPath
           const getURl = await getDownloadURL(snapshot.ref)
-          const item = doc(db, 'item', id)
+          const item = doc(db, 'item', idString)
           await updateDoc(item, {
             url: data.link,
             title: data.nameP,
@@ -103,6 +107,7 @@ const EditItem = (): JSX.Element => {
     <LoginDiv>
       <FormAdd onSubmit={handleSubmit(onSubmit)}>
         <h1>Editar item</h1>
+        {loading && <Spinner />}
         <GroupForm>
           {previewImg != null && (
             <div>
