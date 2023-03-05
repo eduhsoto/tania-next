@@ -40,6 +40,7 @@ const Login = (): JSX.Element => {
       void push('/dashboard')
     } catch (e) {
       setAuth({ err: true, msg: handleErrors(e) })
+      console.log(e)
     }
   }
 
@@ -56,10 +57,10 @@ const Login = (): JSX.Element => {
           ? 'Error de red, vuelva a conectarse y recargar esta pagina'
           : e.code === 'auth/too-many-requests'
           ? 'Demasiados intentos, intente más tarde'
-          : 'Iniciando sesión'
+          : e.code
       return msg
     }
-    return 'Iniciando sesión'
+    return e as string
   }
 
   return (
