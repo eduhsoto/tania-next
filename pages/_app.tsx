@@ -1,4 +1,5 @@
 import ProctedRoute from '@/components/ProctedRoute'
+import JustDesktop from '@/components/SizeDesktop'
 import { AuthProvider } from '@/context/authContext'
 import { NavBarwithRender, FooterwithRender } from '@/hco/LocationHco'
 import '@/styles/globals.css'
@@ -14,6 +15,8 @@ const DefaultComponent = ({children} : { children: ReactNode }): React.ReactElem
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   const Auth = Component === Dashboard || Component === AddItem || Component === EditItem
   const IsComponent = Auth ? ProctedRoute : DefaultComponent
+
+  const IsSize = Auth ? JustDesktop : DefaultComponent
   return (
     <>
       <Head>
@@ -26,7 +29,9 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <AuthProvider>
         <NavBarwithRender />
         <IsComponent>
+        <IsSize>
         <Component {...pageProps} />
+        </IsSize>
         </IsComponent>
         <FooterwithRender />
       </AuthProvider>
