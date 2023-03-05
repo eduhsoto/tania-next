@@ -1,16 +1,15 @@
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { FirebaseError } from 'firebase/app'
 import { useEffect, useState } from 'react'
-import { useRouter } from "next/router";
-import { useAuth, type AuthContextModel } from '@/context/authContext';
+import { useRouter } from 'next/router'
+import { useAuth, type AuthContextModel } from '@/context/authContext'
 import {
   Button,
   FormStyle,
   GroupForm,
   LoginDiv,
 } from '@/styles/styled-components/Login'
-import Image from 'next/image';
-
+import Image from 'next/image'
 
 interface Inputs {
   email: string
@@ -25,12 +24,12 @@ const Login = (): JSX.Element => {
   } = useForm<Inputs>()
 
   const [errAuth, setAuth] = useState({ err: false, msg: '' })
-  const {push} = useRouter()
+  const { push } = useRouter()
   const { signIn, user } = useAuth() as AuthContextModel
 
   useEffect(() => {
     if (user !== null) {
-        void push('/dashboard')
+      void push('/dashboard')
     }
   }, [push, user])
 
@@ -67,7 +66,12 @@ const Login = (): JSX.Element => {
     <>
       <LoginDiv>
         <FormStyle onSubmit={handleSubmit(onSubmit)}>
-          <Image src='/img/tania-profile.png' alt='profile-tania' width={64} height={64}/>
+          <Image
+            src='/img/tania-profile.png'
+            alt='profile-tania'
+            width={64}
+            height={64}
+          />
           {errAuth.err ? <p>{errAuth.msg}</p> : <p>{errAuth.msg}</p>}
           <GroupForm>
             <label htmlFor='email'>Correo</label>

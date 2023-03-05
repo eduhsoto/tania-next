@@ -1,8 +1,4 @@
-import {
-  SkillDiv,
-  TitleH3,
-  List,
-} from '@/styles/styled-components/home/Skill'
+import { SkillDiv, TitleH3, List } from '@/styles/styled-components/home/Skill'
 
 const Skill = ({ title, list }: SkillProps): JSX.Element => {
   return (

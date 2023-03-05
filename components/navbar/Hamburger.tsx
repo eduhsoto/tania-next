@@ -1,4 +1,4 @@
-import { NavHamburger } from "@/styles/styled-components/navbar/Hamburger"
+import { NavHamburger } from '@/styles/styled-components/navbar/Hamburger'
 
 export const Hamburger = ({
   handleClick,

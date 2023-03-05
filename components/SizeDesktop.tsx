@@ -6,21 +6,27 @@ const JustDesktop = ({
 }: {
   children: ReactNode
 }): React.ReactElement => {
-
   const [isDesktop, setDesktop] = useState(false)
 
   useEffect(() => {
-    const handleSize = () : void => {
-      if(window.innerWidth <= 912){
+    const handleSize = (): void => {
+      if (window.innerWidth <= 912) {
         setDesktop(true)
       }
     }
     window.addEventListener('resize', handleSize)
     handleSize()
-    return () => { window.removeEventListener('resize', handleSize); };
+    return () => {
+      window.removeEventListener('resize', handleSize)
+    }
   }, [])
 
-  if(isDesktop) return <H1S>Para una mejor visualización de los datos, use una laptop o computadora</H1S>
+  if (isDesktop)
+    return (
+      <H1S>
+        Para una mejor visualización de los datos, use una laptop o computadora
+      </H1S>
+    )
 
   return <>{children}</>
 }

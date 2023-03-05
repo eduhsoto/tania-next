@@ -6,7 +6,14 @@ import {
   Paragraph,
 } from '@/styles/styled-components/Head'
 
-const Hero = ({ img, title, paragraph, reverse, w, h }: HeadProps): JSX.Element => {
+const Hero = ({
+  img,
+  title,
+  paragraph,
+  reverse,
+  w,
+  h,
+}: HeadProps): JSX.Element => {
   return (
     <HeadSection reverse={reverse}>
       <Img src={img} width={w} height={h} alt='head image'></Img>
@@ -25,6 +32,6 @@ interface HeadProps {
   title: string
   paragraph: string
   reverse: boolean
-  w: number 
+  w: number
   h: number
 }

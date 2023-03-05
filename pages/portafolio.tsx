@@ -1,20 +1,20 @@
-import Hero from "@/components/Hero"
-import Item from "@/components/portafolio/Item"
-import { db } from "@/confirebase/conection"
-import { collection, getDocs } from "firebase/firestore"
-import type { GetServerSideProps } from "next"
+import Hero from '@/components/Hero'
+import Item from '@/components/portafolio/Item'
+import { db } from '@/confirebase/conection'
+import { collection, getDocs } from 'firebase/firestore'
+import type { GetServerSideProps } from 'next'
 
 interface itemType {
-    id: string
-    url: string
-    title: string
-    category: string
-    description: string
-    imageUrl: string
-    deleteImage: string
-  }
+  id: string
+  url: string
+  title: string
+  category: string
+  description: string
+  imageUrl: string
+  deleteImage: string
+}
 
-const Portafolio = ({items}: Props): JSX.Element => {
+const Portafolio = ({ items }: Props): JSX.Element => {
   return (
     <>
       <Hero
