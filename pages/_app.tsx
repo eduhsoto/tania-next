@@ -8,8 +8,8 @@ import type { ReactNode } from 'react'
 import AddItem from './additem'
 import Dashboard from './dashboard'
 import EditItem from './edit/[id]'
-// import Login from './login'
-// import JustDesktop from '@/components/SizeDesktop'
+import Login from './login'
+import JustDesktop from '@/components/SizeDesktop'
 
 const DefaultComponent = ({
   children,
@@ -22,8 +22,8 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
     Component === Dashboard || Component === AddItem || Component === EditItem
   const IsComponent = Auth ? ProctedRoute : DefaultComponent
 
-  // const Sizes = Component === Dashboard || Component === AddItem || Component === EditItem || Component === Login
-  // const IsSize = Sizes ? JustDesktop : DefaultComponent
+  const Sizes = Component === Dashboard || Component === AddItem || Component === EditItem || Component === Login
+  const IsSize = Sizes ? JustDesktop : DefaultComponent
   return (
     <>
       <Head>
@@ -36,9 +36,9 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <AuthProvider>
         <NavBarwithRender />
         <IsComponent>
-          {/* <Sizes> */}
+          <IsSize>
             <Component {...pageProps} />
-          {/* </Sizes> */}
+          </IsSize>
         </IsComponent>
         <FooterwithRender />
       </AuthProvider>
