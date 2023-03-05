@@ -132,29 +132,3 @@ const Dashboard = (): JSX.Element => {
 }
 
 export default Dashboard
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const querySnapshot = await getDocs(collection(db, 'item'))
-//   const docs: itemType[] = []
-//   querySnapshot.forEach((doc) => {
-//     docs.push({
-//       id: doc.id,
-//       url: doc.data().url,
-//       title: doc.data().title,
-//       category: doc.data().category,
-//       description: doc.data().description,
-//       imageUrl: doc.data().imageUrl,
-//       deleteImage: doc.data().deleteImage,
-//     })
-//   })
-
-//   return {
-//     props: {
-//       items: docs,
-//     },
-//   }
-// }
-
-// interface Props {
-//   items: itemType[]
-// }
