@@ -21,9 +21,11 @@ const Portafolio = ({ items }: Props): JSX.Element => {
         img='/img/experience.jpg'
         w={469}
         h={464}
+        hidden={true}
         title='Mi experiencia es laboral y académica, dale un vistazo a mis proyectos!'
         paragraph='Al trabajar para una empresa dedicada a la creación de soluciónes digitales pude obtener mi paión por el deseño UX / UI'
         reverse={false}
+        reverseD={false}
       />
       <section>
         <div className='container'>

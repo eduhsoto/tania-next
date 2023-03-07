@@ -70,7 +70,8 @@ const EditItem = (): JSX.Element => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     if (
       data.image[0].type !== 'image/jpeg' &&
-      data.image[0].type !== 'image/png'
+      data.image[0].type !== 'image/png' &&
+      data.image[0].type !== 'image/svg+xml'
     ) {
       setValidationImg(true)
     } else {
@@ -108,7 +109,7 @@ const EditItem = (): JSX.Element => {
         <GroupForm>
           {previewImg != null && (
             <div>
-              <Image src={previewImg} alt='preview'width={472} height={206} />
+              <Image src={previewImg} alt='preview' width={272} height={172} />
             </div>
           )}
           <input
@@ -119,7 +120,7 @@ const EditItem = (): JSX.Element => {
             onChange={handleImage}
           />
           {validationImg && (
-            <p>Formato de imagen no válido, solo suba jpg/png</p>
+            <p>Formato de imagen no válido, solo suba jpg/png/svg</p>
           )}
           {errors.image?.type === 'required' && <p>La imagen es requerida</p>}
         </GroupForm>
@@ -142,13 +143,11 @@ const EditItem = (): JSX.Element => {
             type='text'
             {...register('nameP', {
               required: true,
-              pattern: /^[ a-zA-ZÑñáéíóúÁÉÍÓÚ ]+$/i,
             })}
           />
           {errors.nameP?.type === 'required' && (
             <p>El nombre del proyecto es requerido</p>
           )}
-          {errors.nameP?.type === 'pattern' && <p>Solo incluya letras</p>}
         </GroupForm>
         <GroupForm>
           <label htmlFor='pass'>Categoría</label>
@@ -156,28 +155,24 @@ const EditItem = (): JSX.Element => {
             type='text'
             {...register('category', {
               required: true,
-              pattern: /^[ a-zA-ZÑñáéíóúÁÉÍÓÚ ]+$/i,
             })}
             placeholder='Diseño UX...'
           />
           {errors.category?.type === 'required' && (
             <p>La categoría es requerida</p>
           )}
-          {errors.category?.type === 'pattern' && <p>Solo incluya letras</p>}
         </GroupForm>
         <GroupForm>
           <label htmlFor='pass'>Descripción</label>
           <textarea
             {...register('description', {
               required: true,
-              pattern: /^[ a-zA-ZÑñáéíóúÁÉÍÓÚ ]+$/i,
             })}
             placeholder='Escribe una descripción'
           />
           {errors.description?.type === 'required' && (
             <p>La descripción es requerida</p>
           )}
-          {errors.description?.type === 'pattern' && <p>Solo incluya letras</p>}
         </GroupForm>
         <Button type='submit'>Agregar</Button>
       </FormAdd>
