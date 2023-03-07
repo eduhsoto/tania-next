@@ -16,9 +16,11 @@ const Path = (): JSX.Element => {
         img='/img/path-image.png'
         w={469}
         h={464}
+        hidden={true}
         title='Mi trayectoria en el mundo laboral'
         paragraph='Soy una persona creativa apasionada por crear experiencias que satisfagan las necesidades humanas al utilizar tecnología.'
         reverse={true}
+        reverseD={true}
       />
       <section>
         <div className='container flex__columns'>

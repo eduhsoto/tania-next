@@ -18,9 +18,11 @@ const Home = (): JSX.Element => {
         img='/img/profile-tania.png'
         w={474}
         h={484}
+        hidden={false}
         title='Hola! Mi nombre es Tania y soy diseñadora UX'
         paragraph='Soy estudiante de Ingeniería en Desarrollo y Gestión de Software, resido actualmente en la ciudad de Guadalajara Jalisco México.'
         reverse={false}
+        reverseD={false}
       />
       <section className='about__me'>
         <div className='container'>

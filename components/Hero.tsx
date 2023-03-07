@@ -13,11 +13,13 @@ const Hero = ({
   reverse,
   w,
   h,
+  hidden,
+  reverseD
 }: HeadProps): JSX.Element => {
   return (
-    <HeadSection reverse={reverse}>
+    <HeadSection reverse={reverse} hidden={hidden}>
       <Img src={img} width={w} height={h} alt='head image'></Img>
-      <Description reverse={reverse}>
+      <Description reverseD={reverseD}>
         <Title>{title}</Title>
         <Paragraph>{paragraph}</Paragraph>
       </Description>
@@ -34,4 +36,6 @@ interface HeadProps {
   reverse: boolean
   w: number
   h: number
+  hidden: boolean
+  reverseD: boolean
 }

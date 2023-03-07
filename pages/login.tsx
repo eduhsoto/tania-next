@@ -7,9 +7,9 @@ import {
   Button,
   FormStyle,
   GroupForm,
+  ImageC,
   LoginDiv,
 } from '@/styles/styled-components/Login'
-import Image from 'next/image'
 
 interface Inputs {
   email: string
@@ -67,7 +67,7 @@ const Login = (): JSX.Element => {
     <>
       <LoginDiv>
         <FormStyle onSubmit={handleSubmit(onSubmit)}>
-          <Image
+          <ImageC
             src='/img/tania-profile.png'
             alt='profile-tania'
             width={64}

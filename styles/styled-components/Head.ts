@@ -3,6 +3,11 @@ import styled, { css } from 'styled-components'
 
 interface HeadProps {
   reverse: boolean
+  hidden: boolean
+}
+
+interface DescriptionProps {
+  reverseD: boolean
 }
 
 export const HeadSection = styled.section<HeadProps>`
@@ -18,7 +23,18 @@ export const HeadSection = styled.section<HeadProps>`
     props.reverse &&
     css`
       direction: rtl;
-    `}s
+    `}
+
+    ${(props) =>
+      props.hidden &&
+      css`
+      @media screen and (max-width: 540px) {
+        img${Img}{
+        display: none;
+        }
+        padding: 0px 0px        
+      }
+    `}
 `
 
 export const Img = styled(Image)`
@@ -26,7 +42,7 @@ export const Img = styled(Image)`
   height: 100%;
 `
 
-export const Description = styled.div<HeadProps>`
+export const Description = styled.div<DescriptionProps>`
   background: linear-gradient(
     270deg,
     rgba(243, 90, 126, 0.98) 26.24%,
@@ -36,7 +52,7 @@ export const Description = styled.div<HeadProps>`
   text-align: right;
 
   ${(props) =>
-    props.reverse &&
+    props.reverseD &&
     css`
       background: linear-gradient(
         -270deg,

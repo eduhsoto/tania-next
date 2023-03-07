@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styled from 'styled-components'
 
 export const LoginDiv = styled.div`
@@ -18,10 +19,10 @@ export const FormStyle = styled.form`
   p {
     color: var(--errors);
   }
+`
 
-  img {
-    align-self: center;
-  }
+export const ImageC = styled(Image) `
+  align-self: center;
 `
 
 export const GroupForm = styled.div`
@@ -39,6 +40,7 @@ export const Button = styled.button`
   margin-top: 20px;
   margin-bottom: 20px;
   border-color: var(--secondary_color);
-  background-color: var(--primary_color);
+  background-color: var(--secondary_color);
+  color: var(--primary_color);
   cursor: pointer;
 `

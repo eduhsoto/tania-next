@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { deleteDoc, doc, collection, onSnapshot } from 'firebase/firestore'
@@ -8,12 +7,13 @@ import { useAuth, type AuthContextModel } from '@/context/authContext'
 import { useEffect, useState } from 'react'
 import {
   ButtonDas,
-  H1,
   LinkEdit,
   Table,
   TopNav,
   Wrapper,
   LinkAdd,
+  LinkPor,
+  H1Por,
 } from '@/styles/styled-components/dashboard/Dashboard'
 import Spinner from '@/components/Spinner'
 
@@ -126,9 +126,9 @@ const Dashboard = (): JSX.Element => {
         {loading && <Spinner />}
         {items.length === 0 && <h1>Sin contenido</h1>}
       </Wrapper>
-      <Link href='/portafolio'>
-        <H1>Ver en portafolio</H1>
-      </Link>
+      <LinkPor href='/portafolio' target='_blank'>
+        <H1Por>Ver en portafolio</H1Por>
+      </LinkPor>
     </div>
   )
 }

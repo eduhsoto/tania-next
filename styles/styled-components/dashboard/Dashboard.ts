@@ -54,6 +54,11 @@ export const H1 = styled.h1`
   margin-top: 50px;
   color: #187575fa;
 `
+export const H1Por = styled(H1)`
+  margin: 30px 30px;
+  padding: 10px 100px;
+  border: var(--secondary_color) solid 2px;
+`
 
 export const H1S = styled(H1)`
   line-height: 1.5em;
@@ -61,10 +66,15 @@ export const H1S = styled(H1)`
 
 export const LinkAdd = styled(Link)`
   margin-right: 30px;
-  background-color: var(--errors);
-  border-color: none;
   padding: 4px 4px;
-  color: var(--primary_color);
+  border: var(--secondary_color) solid 2px;
+  color: var(--box_shadow);
+  font-weight: 600;
+`
+export const LinkPor = styled(Link)`
+  display: flex;
+  align-items: center;   
+  justify-content: center;
 `
 
 export const ButtonDas = styled(Button)`
@@ -73,8 +83,8 @@ export const ButtonDas = styled(Button)`
 `
 
 export const LinkEdit = styled(ButtonDas)`
-  background-color: var(--errors);
-  border-color: var(--errors);
-  color: var(--primary_color);
+  border-color: var(--secondary_color);
+  background-color: var(--primary_color);
   margin-right: 30px;
+  color: black;
 `

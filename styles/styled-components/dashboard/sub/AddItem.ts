@@ -13,6 +13,5 @@ export const FormAdd = styled(FormStyle)`
   img {
     width: 100%;
     height: 100%
-    align-self: center;
   }
 `
