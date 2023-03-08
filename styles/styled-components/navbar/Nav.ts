@@ -41,6 +41,11 @@ export const NavContainer = styled.div`
     .show {
       clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
     }
+
+    .hidden {
+      clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+      transition: 0.5s ease-in-out;
+    }
   }
 
   @media screen and (max-width: 540px) {
@@ -51,11 +56,12 @@ export const NavContainer = styled.div`
     }
 
     .nav__responsive {
-      top: 50px;
+      top: 82px;
     }
 
     .social__image {
       width: 40px;
+      height: 40px;
     }
   }
 `

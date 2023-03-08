@@ -11,11 +11,16 @@ const activeClass = {
 export default function NavLink({
   route,
   linkName,
+  hideNav
 }: NavLinkProps): JSX.Element {
   const { asPath } = useRouter()
 
+  const handleHiddenNav = (): void => {
+    hideNav()
+  } 
+
   return (
-    <NavA href={route} style={asPath === route ? activeClass : undefined}>
+    <NavA href={route} style={asPath === route ? activeClass : undefined} onClick={handleHiddenNav}>
       {linkName}
     </NavA>
   )
@@ -24,4 +29,5 @@ export default function NavLink({
 interface NavLinkProps {
   route: string
   linkName: string
+  hideNav: () => void
 }

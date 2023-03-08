@@ -8,7 +8,7 @@ export const NavHamburger = styled.div`
       position: relative;
       cursor: pointer;
     }
-    .nav__hamburger span {
+    .nav__hamburger span  {
       width: 40px;
       height: 5px;
       border-radius: 4px;
@@ -23,6 +23,10 @@ export const NavHamburger = styled.div`
       transform-origin: 5%;
     }
 
+    .hiddenHam span:nth-child(1){
+      transform: rotate(0deg);
+    }
+
     span:nth-child(3),
     span:nth-child(2) {
       top: calc(25px / 2);
@@ -31,10 +35,16 @@ export const NavHamburger = styled.div`
     span:nth-child(4) {
       bottom: 0;
     }
+    
 
     .active span:nth-child(2) {
       transform: translateX(5px);
       background: transparent;
+    }
+
+    .hiddenHam span:nth-child(2) {
+      transform: translateX(0px);
+      background: black;
     }
 
     .active span:nth-child(3) {
@@ -42,9 +52,18 @@ export const NavHamburger = styled.div`
       background: transparent;
     }
 
+    .hiddenHam span:nth-child(3) {
+      transform: translateX(0px);
+      background: black;
+    }
+
     .active span:nth-child(4) {
       transform: rotate(-45deg);
       transform-origin: 5%;
+    }
+
+    .hiddenHam span:nth-child(4) {
+      transform: rotate(0deg);;
     }
   }
 `
