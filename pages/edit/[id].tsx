@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 import { Button, GroupForm, LoginDiv } from '@/styles/styled-components/Login'
 import { FormAdd } from '@/styles/styled-components/dashboard/sub/AddItem'
 import Spinner from '@/components/Spinner'
-import Image from 'next/image'
+import Image from 'next/image' 
 
 interface Inputs {
   image: FileList
@@ -26,6 +26,7 @@ const EditItem = (): JSX.Element => {
   const [validationImg, setValidationImg] = useState(false)
   const [itemIdImg, setIdUrlImg] = useState<DocumentData | string>()
   const [loading, setLoading] = useState(true)
+  // const fileInputRef = useRef<HTMLInputElement>(null)
   const {
     register,
     formState: { errors },
@@ -45,6 +46,15 @@ const EditItem = (): JSX.Element => {
         setValue('category', data.data().category as string)
         setValue('description', data.data().description as string)
         setLoading(false)
+        // const itemFile = setFile(data.data().deleteImage as string, data.data().nameImg as string)
+        // const pathReference = ref(storage, data.data().deleteImage as string)
+        // const fileBlob = await getBlob(pathReference)
+        // const file = new File([fileBlob], data.data().nameImg as string)
+        // const container = new DataTransfer()
+        // container.items.add(file)
+        // if (fileInputRef.current !== null) {
+        //   fileInputRef.current.files = container.files;
+        // }
       } else {
         console.log('no existe')
       }
@@ -84,6 +94,7 @@ const EditItem = (): JSX.Element => {
           const idImage = snapshot.metadata.fullPath
           const getURl = await getDownloadURL(snapshot.ref)
           const item = doc(db, 'item', idString)
+          const nameIMG = data.image[0].name
           await updateDoc(item, {
             url: data.link,
             title: data.nameP,
@@ -91,6 +102,7 @@ const EditItem = (): JSX.Element => {
             description: data.description,
             imageUrl: getURl,
             deleteImage: idImage,
+            nameImg: nameIMG
           })
           reset()
           void push('/dashboard')

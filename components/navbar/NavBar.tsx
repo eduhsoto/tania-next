@@ -12,9 +12,16 @@ import NavLink from './NavLink'
 
 const NavBar = (): JSX.Element => {
   const [clicked, setClicked] = useState(false)
+  const [clickedLink, setClickedLink] = useState(false)
 
   const handleClick = (): void => {
     setClicked(!clicked)
+    setClickedLink(false)
+  }
+
+  const handleHiddenNav = (): void => {
+    setClickedLink(!clickedLink)
+    setClicked(false)
   }
 
   return (
@@ -31,14 +38,14 @@ const NavBar = (): JSX.Element => {
         </Link>
 
         <div className='burger'>
-          <Hamburger clicked={clicked} handleClick={handleClick} />
+          <Hamburger clicked={clicked} handleClick={handleClick} clickedLink={clickedLink} />
         </div>
 
-        <div className={`nav__responsive ${clicked ? 'show' : ''}`}>
+        <div className={`nav__responsive ${clicked ? 'show' : ''}  ${clickedLink ? 'hidden' : ''}`}>
           <NavItem>
-            <NavLink route='/' linkName='Acerca de mí' />
-            <NavLink route='/my-path' linkName='Mi trayectoria' />
-            <NavLink route='/portafolio' linkName='Mi portafolio' />
+            <NavLink route='/' linkName='Acerca de mí' hideNav={handleHiddenNav}/>
+            <NavLink route='/my-path' linkName='Mi trayectoria' hideNav={handleHiddenNav}/>
+            <NavLink route='/portafolio' linkName='Mi portafolio' hideNav={handleHiddenNav}/>
           </NavItem>
 
           <div>

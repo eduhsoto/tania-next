@@ -56,6 +56,7 @@ const AddItem = (): JSX.Element => {
         const snapshot = await uploadFile(data.image[0])
         const idImage = snapshot.metadata.fullPath
         const getURl = await getDownloadURL(snapshot.ref)
+        const nameIMG = data.image[0].name
         await addDoc(itemCollection, {
           url: data.link,
           title: data.nameP,
@@ -63,6 +64,7 @@ const AddItem = (): JSX.Element => {
           description: data.description,
           imageUrl: getURl,
           deleteImage: idImage,
+          nameImg: nameIMG
         })
         reset()
         void push('/dashboard')
